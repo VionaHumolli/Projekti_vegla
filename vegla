@@ -5,10 +5,10 @@
 using namespace std;
 
 int main() {
-    srand(time(0)); // Initializimi i numrave të rastësishëm
-    int health = 100; // Jetët e lojtarit
-    int points = 0;    // Pikët e fituara
-    int room = 1;      // Dhoma e parë e labirintit
+    srand(time(0)); 
+    int health = 100; 
+    int points = 0;   
+    int room = 1;      
 
     cout << "🕳️ *** Hera e Fundit *** 🕳️\n";
     cout << "Në këtë lojë nuk ka kthim pas! Çdo zgjedhje mund të jetë ajo që përcakton fitoren ose humbjen!\n";

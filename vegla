@@ -71,6 +71,6 @@ int main() {
         room++;
     }
 
-    cout << "\nFaleminderit që luajte këtë lojë të pasigurtë dhe të mbushur me mister! 🌑\n";
+    cout << "\nFaleminderit shumë që luajte këtë lojë të pasigurtë dhe të mbushur me mister! 🌑\n";
     return 0;
 }

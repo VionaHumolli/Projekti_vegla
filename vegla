@@ -10,7 +10,7 @@ int main() {
     int points = 0;   
     int room = 1;      
 
-    cout << "🕳️ *** Hera e Fundit *** 🕳️\n";
+    cout << "*** Hera e Fundit *** \n";
     cout << "Në këtë lojë nuk ka kthim pas! Çdo zgjedhje mund të jetë ajo që përcakton fitoren ose humbjen!\n";
     cout << "Kush do të arrijë të kalojë gjithë labirintin dhe të shpëtojë? Hyr në labirintin që të sfidojë çdo hap!\n";
     
@@ -29,13 +29,11 @@ int main() {
         cin >> choice;
 
         if (choice == 1) {
-            // Armiku
             int enemyAttack = rand() % 40 + 20; // Sulmi i armikut (20-60)
             cout << "⚔️ Armiku të ka sulmuar me " << enemyAttack << " pikë dëmi!\n";
             health -= enemyAttack;
             points += 10;
         } else if (choice == 2) {
-            // Rreziku
             int risk = rand() % 2;
             if (risk == 0) {
                 int damage = rand() % 30 + 10;  // Dëmi nga rreziku
@@ -46,7 +44,6 @@ int main() {
                 cout << "🛡️ Shpëtove nga rreziku dhe gjeje një mundësi të re!\n";
             }
         } else if (choice == 3) {
-            // Sekreti i pasqyrës
             int secret = rand() % 2;
             if (secret == 0) {
                 int heal = rand() % 25 + 5;

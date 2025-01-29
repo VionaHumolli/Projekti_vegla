@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    
+    int num1, num2;
+    std::cout << "Enter two numbers: ";
+    std::cin >> num1 >> num2;
+    
+    int sum = num1 + num2;
+    std::cout << "The sum is: " << sum << std::endl;
+    
+    return 0;
+}

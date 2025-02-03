@@ -37,40 +37,40 @@ int main() {
             int risk = rand() % 2;
             if (risk == 0) {
                 int damage = rand() % 30 + 10;  // Dëmi nga rreziku
-                cout << "💥 Është një kurth, humbe " << damage << " pika jetë!\n";
+                cout << " Është një kurth, humbe " << damage << " pika jetë!\n";
                 health -= damage;
             } else {
                 points += 20; // Gjen një rrugë të sigurtë
-                cout << "🛡️ Shpëtove nga rreziku dhe gjeje një mundësi të re!\n";
+                cout << " Shpëtove nga rreziku dhe gjeje një mundësi të re!\n";
             }
         } else if (choice == 3) {
             int secret = rand() % 2;
             if (secret == 0) {
                 int heal = rand() % 25 + 5;
                 health += heal;
-                cout << "❤️ Pasqyra të ka ndihmuar të shërohesh, fitove " << heal << " pikë jetë!\n";
+                cout << " Pasqyra të ka ndihmuar të shërohesh, fitove " << heal << " pikë jetë!\n";
             } else {
-                cout << "⚠️ Pasqyra të ka ndihmuar të hapësh një kurth të ri!\n";
+                cout << " Pasqyra të ka ndihmuar të hapësh një kurth të ri!\n";
                 health -= 10;
             }
         } else {
-            cout << "❌ Zgjedhje e pavlefshme! Kthehesh prapë në dhomën e parë.\n";
+            cout << " Zgjedhje e pavlefshme! Kthehesh prapë në dhomën e parë.\n";
             health -= 5;
         }
 
         if (health <= 0) {
-            cout << "\n💀 Ke humbur! Të gjitha zgjedhjet kanë çuar në fundin e mundshëm.\n";
+            cout << "\n Ke humbur! Të gjitha zgjedhjet kanë çuar në fundin e mundshëm.\n";
             break;
         }
 
         if (points >= 50) {
-            cout << "\n🎉 FITOVE! Përshtatja e mençurisë dhe kurajës të bëri të shpëtosh nga labirinti!\n";
+            cout << "\n FITOVE! Përshtatja e mençurisë dhe kurajës të bëri të shpëtosh nga labirinti!\n";
             break;
         }
 
         room++;
     }
 
-    cout << "\nFaleminderit shumë që luajte këtë lojë të pasigurtë dhe të mbushur me mister! 🌑\n";
+    cout << "\nFaleminderit shumë që luajte këtë lojë të pasigurtë dhe të mbushur me mister! \n";
     return 0;
 }

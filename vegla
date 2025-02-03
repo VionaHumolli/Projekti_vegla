@@ -36,3 +36,21 @@ LlogariaBankare terhiq(LlogariaBankare &llogaria, double shuma) {
     return llogaria;
 }
 
+
+void shfaqHistorine(const LlogariaBankare &llogaria) {
+    cout << "Historia e transaksioneve per llogarine " << llogaria.numriLlogarise << ":\n";
+    
+    for (const string &transaksion : llogaria.historiaTransaksioneve) {
+              cout << "- " << transaksion << endl;
+}
+}
+
+
+LlogariaBankare llogaritInteresin(LlogariaBankare &llogaria, double normaInteresi) {
+    if (normaInteresi > 0) {
+        double interesi = llogaria.bilanci * (normaInteresi / 100);
+        llogaria.bilanci += interesi;
+        llogaria.historiaTransaksioneve.push_back("Aplikuar interes: " + to_string(interesi) + " EUR");
+}
+return llogaria;
+}

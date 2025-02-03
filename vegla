@@ -1,76 +1,17 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <string>
+#include <vector>
 
 using namespace std;
 
-int main() {
-    srand(time(0)); 
-    int health = 100; 
-    int points = 0;   
-    int room = 1;      
+struct LlogariaBankare {
+    string emri;
+    int numriLlogarise;
+    double bilanci;
+    vector<string> historiaTransaksioneve;
+};
 
-    cout << "*** Hera e Fundit *** \n";
-    cout << "Në këtë lojë nuk ka kthim pas! Çdo zgjedhje mund të jetë ajo që përcakton fitoren ose humbjen!\n";
-    cout << "Kush do të arrijë të kalojë gjithë labirintin dhe të shpëtojë? Hyr në labirintin që të sfidojë çdo hap!\n";
-    
-    while (health > 0) {
-        cout << "\n----------------------------------------\n";
-        cout << "🌍 Dhoma " << room << " e labirintit\n";
-        cout << "Jetët e tua: " << health << " | Pikët e tua: " << points << endl;
-        cout << "----------------------------------------\n";
-        
-        cout << "Zgjedh një veprim: \n";
-        cout << "1. Hap deren e djathtë (Do të ketë një armik të fortë!)\n";
-        cout << "2. Shkosh përmes tunelit të errët (Një rrezik i paparashikueshëm!)\n";
-        cout << "3. Hidh një shikim tek pasqyra e çuditshme (Mund të zbulojë një sekret)\n";
-
-        int choice;
-        cin >> choice;
-
-        if (choice == 1) {
-            int enemyAttack = rand() % 40 + 20; // Sulmi i armikut (20-60)
-            cout << "⚔️ Armiku të ka sulmuar me " << enemyAttack << " pikë dëmi!\n";
-            health -= enemyAttack;
-            points += 10;
-        } else if (choice == 2) {
-            int risk = rand() % 2;
-            if (risk == 0) {
-                int damage = rand() % 30 + 10;  // Dëmi nga rreziku
-                cout << " Është një kurth, humbe " << damage << " pika jetë!\n";
-                health -= damage;
-            } else {
-                points += 20; // Gjen një rrugë të sigurtë
-                cout << " Shpëtove nga rreziku dhe gjeje një mundësi të re!\n";
-            }
-        } else if (choice == 3) {
-            int secret = rand() % 2;
-            if (secret == 0) {
-                int heal = rand() % 25 + 5;
-                health += heal;
-                cout << " Pasqyra të ka ndihmuar të shërohesh, fitove " << heal << " pikë jetë!\n";
-            } else {
-                cout << " Pasqyra të ka ndihmuar të hapësh një kurth të ri!\n";
-                health -= 10;
-            }
-        } else {
-            cout << " Zgjedhje e pavlefshme! Kthehesh prapë në dhomën e parë.\n";
-            health -= 5;
-        }
-
-        if (health <= 0) {
-            cout << "\n Ke humbur! Të gjitha zgjedhjet kanë çuar në fundin e mundshëm.\n";
-            break;
-        }
-
-        if (points >= 50) {
-            cout << "\n FITOVE! Përshtatja e mençurisë dhe kurajës të bëri të shpëtosh nga labirinti!\n";
-            break;
-        }
-
-        room++;
-    }
-
-    cout << "\nFaleminderit shumë që luajte këtë lojë të pasigurtë dhe të mbushur me mister! \n";
-    return 0;
+LlogariaBankare krijoLlogari(string emri, int numri, double shumaFillestare) {
+    LlogariaBankare llogaria = {emri, numri, shumaFillestare, {"Llogaria u krijua me " + to_string(shumaFillestare) + " EUR"}};
+    return llogaria;
 }

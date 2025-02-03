@@ -36,6 +36,20 @@ LlogariaBankare terhiq(LlogariaBankare &llogaria, double shuma) {
     return llogaria;
 }
 
+double shfaqBilancin(const LlogariaBankare &llogaria) {
+    return llogaria.bilanci;
+}
+
+bool transfero(LlogariaBankare &nga, LlogariaBankare &tek, double shuma) {
+    if (shuma > 0 && shuma <= nga.bilanci) {
+        nga.bilanci -= shuma;
+        tek.bilanci += shuma;
+        nga.historiaTransaksioneve.push_back("Transferuar: " + to_string(shuma) + " EUR tek llogaria " + to_string(tek.numriLlogarise));
+        tek.historiaTransaksioneve.push_back("Pranuar: " + to_string(shuma) + " EUR nga llogaria " + to_string(nga.numriLlogarise));
+        return true;
+    }
+    return false;
+}
 
 void shfaqHistorine(const LlogariaBankare &llogaria) {
     cout << "Historia e transaksioneve per llogarine " << llogaria.numriLlogarise << ":\n";

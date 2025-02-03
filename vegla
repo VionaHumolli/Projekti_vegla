@@ -51,6 +51,6 @@ LlogariaBankare llogaritInteresin(LlogariaBankare &llogaria, double normaInteres
         double interesi = llogaria.bilanci * (normaInteresi / 100);
         llogaria.bilanci += interesi;
         llogaria.historiaTransaksioneve.push_back("Aplikuar interes: " + to_string(interesi) + " EUR");
-}
-return llogaria;
+    }
+    return llogaria;
 }

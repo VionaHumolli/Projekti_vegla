@@ -15,3 +15,24 @@ LlogariaBankare krijoLlogari(string emri, int numri, double shumaFillestare) {
     LlogariaBankare llogaria = {emri, numri, shumaFillestare, {"Llogaria u krijua me " + to_string(shumaFillestare) + " EUR"}};
     return llogaria;
 }
+
+
+LlogariaBankare depozito(LlogariaBankare &llogaria, double shuma) {
+    if (shuma > 0) {
+        llogaria.bilanci += shuma;
+        llogaria.historiaTransaksioneve.push_back("Depozituar: " + to_string(shuma) + " EUR");
+    }
+    return llogaria;
+}
+
+
+LlogariaBankare terhiq(LlogariaBankare &llogaria, double shuma) {
+    if (shuma > 0 && shuma <= llogaria.bilanci) {
+        llogaria.bilanci -= shuma;
+        llogaria.historiaTransaksioneve.push_back("Terhequr: " + to_string(shuma) + " EUR");
+    } else {
+        llogaria.historiaTransaksioneve.push_back("Tentative e pasuksesshme per terheqje: " + to_string(shuma) + " EUR");
+    }
+    return llogaria;
+}
+

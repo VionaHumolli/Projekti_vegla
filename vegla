@@ -68,3 +68,7 @@ LlogariaBankare llogaritInteresin(LlogariaBankare &llogaria, double normaInteres
     }
     return llogaria;
 }
+int main() {
+    LlogariaBankare llogaria1 = krijoLlogari("Arben", 1001, 500.0);
+    LlogariaBankare llogaria2 = krijoLlogari("Erisa", 1002, 300.0);
+

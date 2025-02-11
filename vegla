@@ -71,4 +71,8 @@ LlogariaBankare llogaritInteresin(LlogariaBankare &llogaria, double normaInteres
 int main() {
     LlogariaBankare llogaria1 = krijoLlogari("Arben", 1001, 500.0);
     LlogariaBankare llogaria2 = krijoLlogari("Erisa", 1002, 300.0);
+llogaria1 = depozito(llogaria1, 200.0);
+    llogaria1 = terhiq(llogaria1, 150.0);
+    transfero(llogaria1, llogaria2, 100.0);
+    llogaritInteresin(llogaria1, 5.0);
 

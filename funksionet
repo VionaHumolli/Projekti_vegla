@@ -1,0 +1,75 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Transaction {
+public:
+    double amount;
+    string date;
+    
+    Transaction(double amt, string dt) : amount(amt), date(dt) {}
+};
+
+class BankAccount {
+private:
+    string accountNumber;
+    double balance;
+    bool isFrozen;
+    vector<Transaction> transactions;
+
+public:
+    BankAccount(string accNum, double initialBalance)
+        : accountNumber(accNum), balance(initialBalance), isFrozen(false) {}
+
+    void addTransaction(double amount, string date) {
+        if (isFrozen) {
+            cout << "Llogaria eshte e ngrire! Nuk mund te kryeni transaksione.\n";
+            return;
+        }
+        transactions.push_back(Transaction(amount, date));
+        balance += amount;
+        cout << "Transaksioni i shumes " << amount << " u krye me sukses me daten " << date << "!\n";
+        checkSuspiciousActivity();
+    }
+
+    void freezeAccount() {
+        isFrozen = true;
+        cout << "ALARM: Llogaria eshte ngrire per shkak te aktiviteteve te dyshimta!\n";
+    }
+
+    void checkSuspiciousActivity() {
+        if (transactions.size() < 3) return; 
+
+        double sumRecent = 0;
+        int recentCount = 3; 
+
+        for (int i = transactions.size() - recentCount; i < transactions.size(); i++) {
+            sumRecent += transactions[i].amount;
+        }
+
+        if (sumRecent > 5000) { 
+            freezeAccount();
+        }
+    }
+
+    void showAccountStatus() {
+        cout << "Numri i Llogarise: " << accountNumber << "\n"
+             << "Balanca: " << balance << "\n"
+             << "Statusi: " << (isFrozen ? "E ngrire" : "Aktive") << "\n";
+    }
+};
+
+int main() {
+    BankAccount myAccount("123456789", 1000);
+
+    myAccount.addTransaction(2000, "2025-02-13");
+    myAccount.addTransaction(1500, "2025-02-13");
+    myAccount.addTransaction(1800, "2025-02-13"); 
+
+    myAccount.showAccountStatus();
+
+    myAccount.addTransaction(500, "2025-02-14"); 
+
+    return 0;
+}

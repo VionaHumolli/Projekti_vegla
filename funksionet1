@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Transaction {
+public:
+    double amount;
+    string date;
+    
+    Transaction(double amt, string dt) : amount(amt), date(dt) {}
+};
+
+class BankAccount {
+private:
+    string accountNumber;
+    double balance;
+    bool isFrozen;
+    double spendingLimit;
+    vector<Transaction> transactions;
+
+public:
+    BankAccount(string accNum, double initialBalance)
+        : accountNumber(accNum), balance(initialBalance), isFrozen(false), spendingLimit(0) {}
+
+    void setSpendingLimit(double limit) {
+        spendingLimit = limit;
+        cout << "Limiti i shpenzimeve u vendos ne: " << limit << "!\n";
+    }
+
+    void addTransaction(double amount, string date) {
+        if (isFrozen) {
+            cout << "Llogaria eshte e ngrire! Nuk mund te kryeni transaksione.\n";
+            return;
+        }
+        if (spendingLimit > 0 && amount > spendingLimit) {
+            cout << "Transaksioni i refuzuar! Shuma " << amount << " tejkalon limitin e shpenzimeve prej " << spendingLimit << ".\n";
+            return;
+        }
+        transactions.push_back(Transaction(amount, date));
+        balance += amount;
+        cout << "Transaksioni i shumes " << amount << " u krye me sukses me daten " << date << "!\n";
+    }
+
+    void showAccountStatus() {
+        cout << "Numri i Llogarise: " << accountNumber << "\n"
+             << "Balanca: " << balance << "\n"
+             << "Statusi: " << (isFrozen ? "E ngrire" : "Aktive") << "\n"
+             << "Limiti i shpenzimeve: " << (spendingLimit > 0 ? to_string(spendingLimit) : "Pa limit") << "\n";
+    }
+};
+
+int main() {
+    BankAccount myAccount("123456789", 1000);
+
+    myAccount.setSpendingLimit(2000);  
+    myAccount.addTransaction(1500, "2025-02-13");
+    myAccount.addTransaction(2500, "2025-02-14"); 
+
+    myAccount.showAccountStatus();
+
+    return 0;
+}

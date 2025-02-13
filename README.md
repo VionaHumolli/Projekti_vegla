@@ -1,4 +1,4 @@
-# Projekti_vegla
+# Projekti 
 Ky kod krijon një sistem të thjeshtë për menaxhimin e llogarive bankare. Me të mund të:
 
 Krijosh një llogari me emër, numër dhe bilanc fillestar.
